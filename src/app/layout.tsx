@@ -1,0 +1,22 @@
+import type { Metadata } from 'next';
+import '../styles/globals.css';
+
+export const metadata: Metadata = {
+  title: 'Howard Yao',
+  description: 'Researcher, Vocaloid producer, photographer, and writer.',
+  openGraph: {
+    title: 'Howard Yao',
+    description: 'Researcher, Vocaloid producer, photographer, and writer.',
+    siteName: 'Howard Yao',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}

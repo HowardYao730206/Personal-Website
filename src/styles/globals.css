@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=DM+Mono:wght@300;400&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #f5f0e8;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(0,0,0,.018) 40px, rgba(0,0,0,.018) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0,0,0,.018) 40px, rgba(0,0,0,.018) 41px);
+  background-attachment: fixed;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  color: #222;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::selection { background: #e84040; color: #fff; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f5f0e8; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: 2.5px solid #222;
+  cursor: pointer;
+  transition: all 0.18s;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.pill-btn-primary {
+  background: #222;
+  color: #f5f0e8;
+}
+.pill-btn-primary:hover { background: #e84040; border-color: #e84040; }
+
+.pill-btn-outline {
+  background: transparent;
+  color: #222;
+}
+.pill-btn-outline:hover { background: #222; color: #f5f0e8; }
+
+.card-shadow-red   { box-shadow: 6px 6px 0 #b52020; }
+.card-shadow-blue  { box-shadow: 6px 6px 0 #1a4fa0; }
+.card-shadow-green { box-shadow: 6px 6px 0 #1a7a35; }
+.card-shadow-yellow{ box-shadow: 6px 6px 0 #c07010; }
