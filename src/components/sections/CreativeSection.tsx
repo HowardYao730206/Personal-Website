@@ -5,15 +5,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 type Work = { cat: string; title: string; desc: string; year: string; color: string };
 
 const WORKS: Work[] = [
-  { cat: 'research',    title: 'Your Paper Title Here',    desc: 'A brief description of your research and what you contributed.',  year: '2024', color: '#e84040' },
-  { cat: 'research',    title: 'Another Research Project', desc: 'Methods, findings, and your contribution to the field.',          year: '2023', color: '#e84040' },
-  { cat: 'engineering', title: 'Software Project Name',    desc: 'What you built, the problem it solves, and your role.',           year: '2024', color: '#3a7bd5' },
-  { cat: 'engineering', title: 'Another Engineering Work', desc: 'Tech stack, scope, and key outcomes.',                            year: '2023', color: '#3a7bd5' },
+  { cat: 'vocaloid',    title: 'Song Title — Cover',     desc: 'Your Vocaloid arrangement and what drew you to this song.',    year: '2024', color: '#3a7bd5' },
+  { cat: 'vocaloid',    title: 'Original Track Name',    desc: 'The feeling or story you wanted to capture.',                  year: '2023', color: '#3a7bd5' },
+  { cat: 'photography', title: 'Photo Series Name',      desc: 'What you were looking at, where you were, what you noticed.',  year: '2024', color: '#f0a020' },
+  { cat: 'photography', title: 'Another Photo Set',      desc: 'A season, a place, a mood.',                                   year: '2023', color: '#f0a020' },
+  { cat: '3d',          title: '3D Print / CAD Project', desc: 'What you designed, the challenge it solved, materials used.',  year: '2024', color: '#e84040' },
+  { cat: '3d',          title: 'Another 3D Design',      desc: 'Inspiration, process, and the result.',                        year: '2023', color: '#e84040' },
 ];
 
-const FILTERS = ['all', 'research', 'engineering'] as const;
+const FILTERS = ['all', 'vocaloid', 'photography', '3d'] as const;
 
-export default function WorksSection() {
+export default function CreativeSection() {
   const [filter, setFilter] = useState<string>('all');
   const shown = filter === 'all' ? WORKS : WORKS.filter(w => w.cat === filter);
 
@@ -21,9 +23,9 @@ export default function WorksSection() {
     <section className="max-w-3xl mx-auto px-8 py-24">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
         <span className="inline-block bg-ink text-cream text-xs font-bold tracking-widest px-4 py-1.5 rounded-pill mb-4">
-          technical
+          creative
         </span>
-        <h2 className="font-maru font-black text-4xl text-ink mb-8 tracking-tight">Works</h2>
+        <h2 className="font-maru font-black text-4xl text-ink mb-8 tracking-tight">Creative</h2>
 
         {/* Filter pills */}
         <div className="flex gap-2 flex-wrap mb-8">

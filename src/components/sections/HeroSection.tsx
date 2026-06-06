@@ -5,10 +5,10 @@ const NAME_COLORS = ['#e84040','#3a7bd5','#222','#2daa55','#f0a020','#222','#3a7
 const NAME_CHARS  = ['H','o','w','a','r','d',' ','Y','a','o'];
 
 const CARDS = [
-  { emoji: '🔬', title: 'Research',     sub: 'papers & projects', bg: '#e84040', shadow: '#b52020', section: 'works' },
-  { emoji: '🎵', title: 'Music',        sub: 'vocaloid covers',   bg: '#3a7bd5', shadow: '#1a4fa0', section: 'works' },
-  { emoji: '📷', title: 'Photography',  sub: 'series & sets',     bg: '#f0a020', shadow: '#c07010', section: 'works' },
-  { emoji: '✏️', title: 'Blog',         sub: 'thoughts & notes',  bg: '#2daa55', shadow: '#1a7a35', section: 'blog'  },
+  { icon: '/icons/about.png',    title: 'About me',  sub: 'researcher · creator',   bg: '#e84040', shadow: '#b52020', section: 'about'    },
+  { icon: '/icons/works.png',    title: 'Works',     sub: 'research & engineering',  bg: '#3a7bd5', shadow: '#1a4fa0', section: 'works'    },
+  { icon: '/icons/creative.png', title: 'Creative',  sub: 'music, photo & 3D',       bg: '#f0a020', shadow: '#c07010', section: 'creative' },
+  { icon: '/icons/blogs.png',    title: 'Blogs',     sub: 'thoughts & notes',        bg: '#2daa55', shadow: '#1a7a35', section: 'blog'     },
 ];
 
 export default function HeroSection() {
@@ -84,7 +84,7 @@ export default function HeroSection() {
                 className="absolute -top-5 -right-5 w-16 h-16 rounded-full"
                 style={{ background: 'rgba(255,255,255,.15)' }}
               />
-              <div className="text-3xl mb-2">{card.emoji}</div>
+              <img src={card.icon} alt="" className="w-10 h-10 mb-2 object-contain" />
               <div className="font-maru font-black text-white text-base leading-tight">{card.title}</div>
               <div className="text-white/70 text-xs mt-1 font-normal">{card.sub}</div>
             </motion.div>

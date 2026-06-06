@@ -2,10 +2,11 @@
 import { useState, useEffect } from 'react';
 
 const links = [
-  { id: 'home',   label: 'home' },
-  { id: 'works',  label: 'works' },
-  { id: 'blog',   label: 'blog' },
-  { id: 'resume', label: 'résumé' },
+  { id: 'about',    label: 'about me' },
+  { id: 'works',    label: 'works' },
+  { id: 'creative', label: 'creative' },
+  { id: 'blog',     label: 'blogs' },
+  { id: 'resume',   label: 'résumé' },
 ];
 
 export default function Nav() {
