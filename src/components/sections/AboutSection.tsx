@@ -29,12 +29,14 @@ export default function AboutSection() {
           {/* Bio */}
           <div className="flex-1">
             <p className="text-ink font-maru font-bold text-xl mb-3">Howard Yao</p>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              研究员、Vocaloid 制作人、摄影师。<br />
-              Researcher, Vocaloid producer, photographer — sometimes all at once.
+            <p className="text-gray-500 text-sm leading-relaxed mb-3">
+              Hello! I&apos;m Howard, a senior Electrical Engineering &amp; Computer Science student at UC Berkeley.
+            </p>
+            <p className="text-gray-500 text-sm leading-relaxed mb-3">
+              I&apos;m passionate about robotics, sensors, and digital systems. My work spans embedded systems, sensing technologies, and intelligent machines.
             </p>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
-              Write a few sentences about yourself here — your research interests, what drives you creatively, where you study or work, and anything else you'd like visitors to know.
+              Thanks for stopping by—it&apos;s great to meet you!
             </p>
 
             <div className="flex flex-wrap gap-2">

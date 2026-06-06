@@ -39,7 +39,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block bg-ink text-cream text-xs font-bold tracking-widest px-4 py-1.5 rounded-pill mb-6">
-            creator
+            Creator
           </span>
 
           {/* Bouncy name */}
