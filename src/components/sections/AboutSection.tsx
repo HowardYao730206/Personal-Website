@@ -27,7 +27,7 @@ export default function AboutSection() {
           </div>
 
           {/* Bio */}
-          <div className="flex-1 -mt-12">
+          <div className="flex-1 mt-6 md:mt-0 md:-mt-12">
             <p className="text-ink font-maru font-bold text-xl mb-3">Howard Yao</p>
             <p className="text-gray-500 text-sm leading-relaxed mb-3">
               Hello! I&apos;m Howard, a senior Electrical Engineering &amp; Computer Science student at UC Berkeley.
