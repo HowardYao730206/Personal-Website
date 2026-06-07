@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DetailDrawer from '@/components/ui/DetailDrawer';
 
-type Work = { cat: string; slug: string; title: string; desc: string; year: string; color: string };
+type Work = { cat: string; slug: string; title: string; desc: string; year: string; color: string; thumb?: string };
 
 const WORKS: Work[] = [
   { cat: 'vocaloid',    slug: 'creative/vocaloid-cover', title: 'Song Title — Cover',     desc: 'Your Vocaloid arrangement and what drew you to this song.',    year: '2024', color: '#3a7bd5' },
@@ -43,21 +43,46 @@ export default function CreativeSection() {
             ))}
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <AnimatePresence mode="popLayout">
               {shown.map((w, i) => (
-                <motion.div key={w.title} layout
-                  initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }} transition={{ delay: i * 0.05 }}
-                  whileHover={{ x: 4 }}
+                <motion.div key={`${w.title}-${w.year}`} layout
+                  initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }} transition={{ delay: i * 0.05 }}
+                  whileHover={{ y: -4 }}
                   onClick={() => setDrawer(w.slug)}
-                  className="flex items-center gap-4 bg-white rounded-card px-5 py-4 cursor-pointer border-2 border-transparent hover:border-gray-100 transition-colors">
-                  <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: w.color }} />
-                  <div className="flex-1">
-                    <p className="font-maru font-bold text-ink text-[15px] leading-tight mb-0.5">{w.title}</p>
+                  className="group bg-white rounded-card overflow-hidden cursor-pointer border-2 border-transparent hover:border-gray-100 transition-colors">
+
+                  {/* Thumbnail */}
+                  <div className="aspect-[4/3] relative overflow-hidden bg-gray-50">
+                    {w.thumb ? (
+                      <img
+                        src={w.thumb}
+                        alt={w.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center"
+                        style={{ background: `linear-gradient(135deg, ${w.color}22, ${w.color}08)` }}>
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center"
+                          style={{ background: `${w.color}26` }}>
+                          <div className="w-4 h-4 rounded-full" style={{ background: w.color }} />
+                        </div>
+                      </div>
+                    )}
+                    <span className="absolute top-3 right-3 font-mono text-[11px] text-gray-400 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded-pill">
+                      {w.year}
+                    </span>
+                  </div>
+
+                  {/* Text */}
+                  <div className="p-4">
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: w.color }} />
+                      <p className="font-maru font-bold text-ink text-[15px] leading-tight">{w.title}</p>
+                    </div>
                     <p className="text-gray-400 text-sm leading-relaxed">{w.desc}</p>
                   </div>
-                  <span className="font-mono text-xs text-gray-300 flex-shrink-0">{w.year}</span>
                 </motion.div>
               ))}
             </AnimatePresence>
