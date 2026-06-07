@@ -9,9 +9,9 @@ export default function AboutSection() {
         <span className="inline-block bg-ink text-cream text-xs font-bold tracking-widest px-4 py-1.5 rounded-pill mb-4">
           about me
         </span>
-        <h2 className="font-maru font-black text-4xl text-ink mb-10 tracking-tight">Who I am</h2>
+        <h2 className="font-maru font-black text-4xl text-ink mb-6 tracking-tight">Who I am</h2>
 
-        <div className="flex flex-col md:flex-row gap-10 items-start">
+        <div className="flex flex-col md:flex-row gap-8 items-start">
           {/* Profile photo */}
           <div className="flex-shrink-0">
             <div className="w-48 h-48 rounded-card overflow-hidden bg-gray-100 border-2 border-gray-200 relative">
@@ -27,7 +27,7 @@ export default function AboutSection() {
           </div>
 
           {/* Bio */}
-          <div className="flex-1">
+          <div className="flex-1 -mt-12">
             <p className="text-ink font-maru font-bold text-xl mb-3">Howard Yao</p>
             <p className="text-gray-500 text-sm leading-relaxed mb-3">
               Hello! I&apos;m Howard, a senior Electrical Engineering &amp; Computer Science student at UC Berkeley.
