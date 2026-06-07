@@ -1,0 +1,49 @@
+---
+title: "Portable Cellular Signal Towers for 5G-based Data Collection and Kriging-based Spatial Interpolation in Fields"
+year: "2024"
+cat: "research"
+---
+
+## Overview
+
+Presented at the **DOE Community College Internship (CCI) Program**, supported by the U.S. Department of Energy, Office of Science.
+
+Co-authored with Stijn Wielandt, Ivo Markovic, and Robin Thibaut at Lawrence Berkeley National Laboratory.
+
+As 5G technology advances, its benefits remain largely confined to urban areas. Remote and challenging terrain still lacks the infrastructure needed for real-time data transmission. This project addresses that gap by designing a rapidly deployable outdoor data collection system that pairs a **Raspberry Pi** with a **Quectel RM502Q-AE 5G cellular module**, enabling low-cost, real-time geospatial data transmission from areas with limited or no connectivity.
+
+## Hardware System
+
+The sensor unit at the heart of the system is a Raspberry Pi paired with the RM502Q-AE 5G cellular module. Fitted with external antennas for maximum signal reception, the unit collects RSSI values and GPS coordinates — including altitude — and transmits them in real time to a central server over the 5G link. Its compact form factor makes it easy to carry into the field and position at any measurement point.
+
+![Raspberry Pi with RM502Q-AE 5G module deployed at the field site](/works/kriging/raspi-field.jpg)
+
+The full signal tower scales this capability up for stationary, long-range deployments. A lightweight foldable tripod base supports a mast carrying a dish antenna, directional antenna, and Starlink terminal. All structural components use PVC pipe fittings, which are cheap, easy to cut, weatherproof, and RF-transparent — an intentional material choice to avoid interfering with the antennas.
+
+![PVC cross-junction used for mounting and routing antenna cables through the tower mast](/works/kriging/antenna-mount.jpg)
+
+Power distribution and electronics are housed in a ruggedized waterproof case at the base of the tower. Inside, terminal blocks, a relay, and a custom PCB manage power routing from the battery to the Raspberry Pi, antennas, and 5G module. The enclosure keeps all electronics protected during multi-day outdoor deployments.
+
+![Interior of the power and electronics control box, showing terminal blocks, relay, and custom PCB](/works/kriging/electronics-box.jpg)
+
+![Fully assembled signal tower at dusk, showing dish antenna, Starlink, directional antenna, and control box at the base](/works/kriging/signal-tower.png)
+
+## Kriging Algorithm
+
+The analytical pipeline takes raw CSV measurements as input and produces a continuous signal strength map as a GeoTIFF. The flowchart below illustrates the full processing sequence: GPS coordinates are first converted to UTM13N, a prediction grid is generated over the survey area, an experimental variogram is computed and fitted to a parametric model, and Ordinary Kriging is performed across the grid. If the variogram fit is poor, the model is swapped and the process repeats before proceeding to kriging.
+
+![Kriging algorithm logic map — from CSV input through variogram fitting to GeoTIFF output](/works/kriging/flowchart.png)
+
+Variogram fitting uses **PyTorch neural networks** with bounded parameter optimization, evaluating spherical, exponential, and Gaussian models and selecting the best fit by minimizing weighted mean absolute error across lag distances. A convex hull mask limits estimation to regions covered by actual observations, reducing extrapolation error. Elevation is sampled from a DEM file via `rasterio` to account for 3D terrain effects in the kriging system.
+
+## Results
+
+The final output is a georeferenced RSSI coverage map overlaid on satellite imagery in QGIS, with topographic contours showing how terrain elevation correlates with signal strength. Warm colors (red/orange) indicate strong signal near the tower; cool colors (blue/purple) show attenuation at range. The colored dots are the raw measurement points collected during the field survey.
+
+![Kriging-interpolated RSSI map overlaid on satellite imagery in QGIS, with topographic contours and raw measurement points](/works/kriging/kriging-map.jpg)
+
+## Documents
+
+[CCI Poster](/works/CCI-poster.pdf) — Conference poster presented at the DOE Community College Internship Program.
+
+[Progress Report](/works/CCI-progress-report.pdf) — Fall 2024 project introduction and progress report.

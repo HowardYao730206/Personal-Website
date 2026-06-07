@@ -1,0 +1,55 @@
+---
+title: "A 60 GHz Millimeter-Wave FMCW Radar System for Real-Time Observations in Remote Outdoor Environments"
+year: "2025"
+cat: "research"
+---
+
+## Overview
+
+Published at the **IEEE Sensors Applications Symposium (SAS) 2025**. Awarded **Best Poster Award**.
+
+Co-authored under the guidance of Ivo Marković and Stijn Wielandt at the Earth & Environmental Sciences Area, Lawrence Berkeley National Laboratory.
+
+Single-chip millimeter-wave radars offer low-cost, high-resolution sensing for environmental monitoring. But weatherproofing and remote operability have historically limited their use in field deployments. This paper presents a robust, remotely configurable 60 GHz FMCW radar system built around the **Infineon BGT60TR13C** platform, designed for long-term outdoor operation.
+
+## System Design
+
+At its core, the system uses the BGT60TR13C 60 GHz radar chip with 4 on-package antennas (3 Rx, 1 Tx), paired with a PSoC 62 MCU and CYW43012 WiFi/Bluetooth module for remote control and real-time I/Q data streaming over UDP. Power is provided by a 12 V 35 Ah sealed lead-acid battery and a Renogy 50 W solar panel with a 10 A PWM charge controller, sustaining up to 25 days of operation without sunlight. The entire assembly is housed in a cylindrical polypropylene enclosure (49.7 mm diameter) that doubles as a radome, paired with a 3D-printed PLA parabolic radar mount designed to minimize dielectric material near the antennas.
+
+The photo below shows the fully disassembled radar unit: silica gel desiccant (left), Infineon BGT60TR13C development board, 3D-printed PLA parabolic mount, and the polypropylene radome cylinder.
+
+![Disassembled radar assembly — Infineon BGT60TR13C board, 3D-printed PLA mount, and polypropylene radome cylinder](/works/fmcw/disassembled.png)
+
+## Radome Design
+
+A key contribution of this work is the characterization of the enclosure's impact on radiation patterns. The cylindrical polypropylene jar (90 mm tall, 49.7 mm outer diameter, 1.45 mm wall) serves as the weatherproof radome. The radar chip sits at the center of the enclosure on the PLA mount, which is machined with a parabolic opening to minimize dielectric material near the antennas.
+
+![Front view of the radome assembly — 90 mm height, 49.7 mm outer diameter, radar chip centered on boresight axis](/works/fmcw/radome-front.png)
+
+![Top view of the radome — inner radius 23.4 mm, 1.45 mm wall thickness, azimuth reference angle shown](/works/fmcw/radome-top.png)
+
+![Cross-section top view showing inner cavity geometry — r = 24.5 mm, 1.7 mm wall thickness at the inner jar rim](/works/fmcw/radome-inner.png)
+
+The design maintains antenna gain within spec across ±56.6° elevation and ±60.3° azimuth opening angles, with only **0.54 dB absorption/reflection loss** at boresight — negligible compared to near-boresight measurement variability of ±0.8 dB.
+
+The plot below shows the normalized antenna gain pattern of the bare radar module. The black and red ellipses mark the Rx/Tx half-power beam widths from the data sheet; the cyan outline shows the opening angle of the 3D-printed PLA mount.
+
+![Normalized antenna gain pattern (bare module) — elevation vs. azimuth — Rx/Tx half-power beam widths shown in black/red, mount opening angle in cyan](/works/fmcw/radiation-pattern.png)
+
+The heatmap below shows the gain difference after adding the enclosure. Inside the mount's opening angle (cyan ellipse) the difference is near zero, confirming negligible radome loss. The 3D-printed mount widens the beam slightly in azimuth, producing a less eccentric beam shape.
+
+![Gain difference after adding the enclosure — near-zero loss inside the mount opening angle, with slight azimuth beam widening from the PLA mount](/works/fmcw/gain-difference.png)
+
+## Field Deployment
+
+Six autonomous radar stations were deployed in October 2023 at a mountainous watershed near **Crested Butte, CO, USA** at 3,150 m elevation and remained operational through May 2025.
+
+![Radar station deployed at the Snodgrass field site near Crested Butte, CO — solar-panel-powered unit standing in snow at 3,150 m elevation](/works/fmcw/snodgrass_radars.jpg)
+
+The systems endured temperatures from −22.9 °C to 25.1 °C, low atmospheric pressure, high winds, and elevated electrostatic buildup. Over **600,000 real-time observations** were acquired with **93% uptime** and no radar downtime exceeding 24 consecutive hours. Downward-facing radars monitored snowpack depth while upward-facing units captured precipitation velocities between 3.1 and 7.4 m/s.
+
+## Documents
+
+[Full Paper (PDF)](/works/fmcw-radar-paper.pdf) — Published at IEEE Sensors Applications Symposium 2025.
+
+[Read on IEEE Xplore](https://doi.org/10.1109/SAS65169.2025.11105201)

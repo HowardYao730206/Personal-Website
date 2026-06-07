@@ -33,26 +33,22 @@ export default function AboutSection() {
               Hello! I&apos;m Howard, a senior Electrical Engineering &amp; Computer Science student at UC Berkeley.
             </p>
             <p className="text-gray-500 text-sm leading-relaxed mb-3">
+              I am currently a Student Assistant in the Engineering Division at Lawrence Berkeley National Laboratory, where I have the privilege of conducting research under the guidance of{' '}
+              <a
+                href="https://engineering.lbl.gov/profile/stijnwielandt/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink font-semibold underline underline-offset-2 hover:text-[#3a7bd5] transition-colors"
+              >
+                Stijn Wielandt
+              </a>.
+            </p>
+            <p className="text-gray-500 text-sm leading-relaxed mb-3">
               I&apos;m passionate about robotics, sensors, and digital systems. My work spans embedded systems, sensing technologies, and intelligent machines.
             </p>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">
-              Thanks for stopping by—it&apos;s great to meet you!
+            <p className="text-gray-500 text-sm leading-relaxed">
+              Thanks for stopping by! It&apos;s great to meet you!
             </p>
-
-            <div className="flex flex-wrap gap-2">
-              {['researcher', 'vocaloid producer', 'photographer', '3D designer'].map((tag, i) => {
-                const colors = ['#e84040', '#3a7bd5', '#f0a020', '#2daa55'];
-                return (
-                  <span
-                    key={tag}
-                    className="font-maru font-bold text-xs px-3 py-1.5 rounded-pill border-2"
-                    style={{ borderColor: colors[i], color: colors[i] }}
-                  >
-                    {tag}
-                  </span>
-                );
-              })}
-            </div>
           </div>
         </div>
       </motion.div>
