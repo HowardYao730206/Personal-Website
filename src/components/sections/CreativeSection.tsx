@@ -6,8 +6,7 @@ import DetailDrawer from '@/components/ui/DetailDrawer';
 type Work = { cat: string; slug: string; title: string; desc: string; year: string; color: string; thumb?: string };
 
 const WORKS: Work[] = [
-  { cat: 'vocaloid',    slug: 'creative/vocaloid-cover', title: 'Song Title — Cover',     desc: 'Your Vocaloid arrangement and what drew you to this song.',    year: '2024', color: '#3a7bd5' },
-  { cat: 'vocaloid',    slug: 'creative/vocaloid-cover', title: 'Original Track Name',    desc: 'The feeling or story you wanted to capture.',                  year: '2023', color: '#3a7bd5' },
+  { cat: 'vocaloid',    slug: 'creative/vocaloid-cover', title: 'Idol — YOASOBI feat. Hatsune Miku (V6 Cover)', desc: 'A Vocaloid V6 cover arrangement of YOASOBI’s "Idol," feats. Hatsune Miku', year: '2026', color: '#3a7bd5', thumb: '/creative/vocaloid/idol-cover-art.jpg' },
   { cat: 'photography', slug: 'creative/photo-series',   title: 'Photo Series Name',      desc: 'What you were looking at, where you were, what you noticed.',  year: '2024', color: '#f0a020' },
   { cat: 'photography', slug: 'creative/photo-series',   title: 'Another Photo Set',      desc: 'A season, a place, a mood.',                                   year: '2023', color: '#f0a020' },
   { cat: '3d',          slug: 'creative/3d-design',      title: '3D Print / CAD Project', desc: 'What you designed, the challenge it solved, materials used.',  year: '2024', color: '#e84040' },

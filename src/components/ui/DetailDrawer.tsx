@@ -44,8 +44,11 @@ const components = {
     <blockquote className="border-l-4 border-gray-200 pl-4 text-gray-400 text-sm italic my-4" {...props} />
   ),
   hr: () => <hr className="border-gray-100 my-8" />,
-  iframe: (props: React.IframeHTMLAttributes<HTMLIFrameElement>) => (
-    <iframe className="w-full aspect-video rounded-card my-6" allowFullScreen {...props} />
+  pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
+    <pre className="bg-[#0e0e10] text-gray-300 text-xs leading-relaxed rounded-card p-4 my-6 overflow-x-auto font-mono whitespace-pre" {...props} />
+  ),
+  code: (props: React.HTMLAttributes<HTMLElement>) => (
+    <code className="font-mono" {...props} />
   ),
 };
 
