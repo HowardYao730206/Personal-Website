@@ -10,8 +10,7 @@ const WORKS: Work[] = [
   { cat: 'vocaloid',    slug: 'creative/vocaloid-cover', title: 'Idol — YOASOBI feat. Hatsune Miku (V6 Cover)', desc: 'A Vocaloid V6 cover arrangement of YOASOBI’s "Idol," feats. Hatsune Miku', year: '2026', color: '#3a7bd5', thumb: '/creative/idol/idol-cover-art.jpg' },
   { cat: 'photography', slug: 'creative/photo-series',   title: 'Photo Series Name',      desc: 'What you were looking at, where you were, what you noticed.',  year: '2024', color: '#f0a020' },
   { cat: 'photography', slug: 'creative/photo-series',   title: 'Another Photo Set',      desc: 'A season, a place, a mood.',                                   year: '2023', color: '#f0a020' },
-  { cat: '3d',          slug: 'creative/3d-design',      title: '3D Print / CAD Project', desc: 'What you designed, the challenge it solved, materials used.',  year: '2024', color: '#e84040' },
-  { cat: '3d',          slug: 'creative/3d-design',      title: 'Another 3D Design',      desc: 'Inspiration, process, and the result.',                        year: '2023', color: '#e84040' },
+  { cat: '3d',          slug: 'creative/pochita',        title: 'Pochita — 3D CAD & Print', desc: 'A 3D model of Pochita from Chainsaw Man, designed in Blender and printed in full color', year: '2026', color: '#e84040', thumb: '/creative/pochita/print-photo.jpg' },
 ];
 
 const FILTERS = ['all', 'vocaloid', 'photography', '3d'] as const;
