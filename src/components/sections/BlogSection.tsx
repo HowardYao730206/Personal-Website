@@ -3,13 +3,18 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import DetailDrawer from '@/components/ui/DetailDrawer';
 
-const ACCENT = ['#222', '#3a7bd5', '#f0a020', '#2daa55'];
+type Post = { slug: string; date: string; title: string; excerpt: string; tags: string[]; thumb?: string; color: string };
 
-const POSTS = [
-  { slug: 'blog/first-post',  date: 'Jun 2026', title: 'Your latest post title goes here',       excerpt: 'A sentence or two about what you wrote — warm and honest.',            tags: ['reflection'] },
-  { slug: 'blog/first-post',  date: 'May 2026', title: 'On making things that no one might see', excerpt: 'Sometimes the act of creating is entirely for yourself.',               tags: ['creativity', 'music'] },
-  { slug: 'blog/first-post',  date: 'Apr 2026', title: 'What I noticed this month',              excerpt: 'A loose collection — a photo, a paper I read, a song I loved.',         tags: ['monthly notes'] },
-  { slug: 'blog/first-post',  date: 'Mar 2026', title: 'Notes from a photography walk',          excerpt: 'I went out with no particular goal and came back with these thoughts.', tags: ['photography'] },
+const POSTS: Post[] = [
+  {
+    slug: 'blog/totoro-monomyth',
+    date: 'Feb 2024',
+    title: 'My Neighbor Totoro and the Monomyth',
+    excerpt: 'If one day, no one weeps for you, believe that the rain is the clouds shedding tears for you.',
+    tags: ['film', 'review'],
+    color: '#4a9e6b',
+    thumb: '/blogs/totoro/cover.jpg',
+  },
 ];
 
 export default function BlogSection() {
@@ -24,27 +29,54 @@ export default function BlogSection() {
           </span>
           <h2 className="font-maru font-black text-4xl text-ink mb-10 tracking-tight">Thoughts & notes</h2>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-6">
             {POSTS.map((post, i) => (
-              <motion.article key={post.title}
-                initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
+              <motion.article key={post.slug}
+                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                whileHover={{ x: 4 }}
+                whileHover={{ y: -3 }}
                 onClick={() => setDrawer(post.slug)}
-                className="bg-white rounded-card px-5 py-4 cursor-pointer border-l-4 transition-all hover:shadow-sm"
-                style={{ borderLeftColor: ACCENT[i] }}>
-                <div className="flex items-start gap-4">
-                  <span className="font-mono text-xs text-gray-300 pt-1 w-20 flex-shrink-0">{post.date}</span>
-                  <div>
-                    <p className="font-maru font-bold text-ink text-[15px] leading-tight mb-1">{post.title}</p>
-                    <p className="text-gray-400 text-sm leading-relaxed mb-2">{post.excerpt}</p>
-                    <div className="flex gap-1.5 flex-wrap">
+                className="group bg-white rounded-card overflow-hidden cursor-pointer border-2 border-transparent hover:border-gray-100 transition-all">
+
+                {/* Cover image */}
+                <div className="w-full aspect-[2/1] relative overflow-hidden bg-gray-50">
+                  {post.thumb ? (
+                    <img src={post.thumb} alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  ) : (
+                    <div className="w-full h-full flex items-end p-6"
+                      style={{ background: `linear-gradient(135deg, ${post.color}18, ${post.color}06)` }}>
+                      <span className="font-maru font-black text-[96px] leading-none select-none"
+                        style={{ color: `${post.color}22` }}>
+                        "
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Text */}
+                <div className="px-6 py-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-[11px] text-gray-300 tracking-widest uppercase">{post.date}</span>
+                    <div className="flex gap-1.5">
                       {post.tags.map(t => (
-                        <span key={t} className="font-maru font-bold text-[11px] bg-gray-50 text-gray-400 px-2.5 py-0.5 rounded-full">
+                        <span key={t} className="font-maru font-bold text-[10px] tracking-widest uppercase px-2 py-0.5 rounded-full border"
+                          style={{ color: post.color, borderColor: `${post.color}44`, background: `${post.color}0a` }}>
                           {t}
                         </span>
                       ))}
                     </div>
+                  </div>
+                  <h3 className="font-maru font-black text-ink text-xl leading-snug mb-2 tracking-tight group-hover:text-gray-700 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{post.excerpt}</p>
+                  <div className="mt-4 flex items-center gap-1 text-[12px] font-maru font-bold tracking-wide"
+                    style={{ color: post.color }}>
+                    Read
+                    <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
                   </div>
                 </div>
               </motion.article>
