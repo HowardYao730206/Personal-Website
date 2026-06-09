@@ -6,7 +6,8 @@ import DetailDrawer from '@/components/ui/DetailDrawer';
 type Work = { cat: string; slug: string; title: string; desc: string; year: string; color: string; thumb?: string };
 
 const WORKS: Work[] = [
-  { cat: 'vocaloid',    slug: 'creative/vocaloid-cover', title: 'Idol — YOASOBI feat. Hatsune Miku (V6 Cover)', desc: 'A Vocaloid V6 cover arrangement of YOASOBI’s "Idol," feats. Hatsune Miku', year: '2026', color: '#3a7bd5', thumb: '/creative/vocaloid/idol-cover-art.jpg' },
+  { cat: 'vocaloid',    slug: 'creative/b-no-revenge',   title: 'Bのリベンジ — B小町 feat. Rose SV & Kasane Teto SV', desc: 'Opening song from the anime TVアニメ「【推しの子】」- 「Oshi no Ko」 Season 3', year: '2026', color: '#9b59b6', thumb: '/creative/b-no-revenge/cover.jpg' },
+  { cat: 'vocaloid',    slug: 'creative/vocaloid-cover', title: 'Idol — YOASOBI feat. Hatsune Miku (V6 Cover)', desc: 'A Vocaloid V6 cover arrangement of YOASOBI’s "Idol," feats. Hatsune Miku', year: '2026', color: '#3a7bd5', thumb: '/creative/idol/idol-cover-art.jpg' },
   { cat: 'photography', slug: 'creative/photo-series',   title: 'Photo Series Name',      desc: 'What you were looking at, where you were, what you noticed.',  year: '2024', color: '#f0a020' },
   { cat: 'photography', slug: 'creative/photo-series',   title: 'Another Photo Set',      desc: 'A season, a place, a mood.',                                   year: '2023', color: '#f0a020' },
   { cat: '3d',          slug: 'creative/3d-design',      title: '3D Print / CAD Project', desc: 'What you designed, the challenge it solved, materials used.',  year: '2024', color: '#e84040' },
